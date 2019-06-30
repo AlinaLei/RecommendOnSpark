@@ -13,9 +13,10 @@ def CreateSparkContext():
     spark = SparkSession.builder \
         .appName("TestSparkSession") \
         .master("spark://hadoop2:7077") \
-        .config('spark.executor.memory','16g')\
+        .config('spark.executor.num','4')\
+        .config('spark.executor.memory','32g')\
         .config("spark.executor.cores",'4')\
-        .config('spark.cores.max','5')\
+        .config('spark.cores.max','8')\
         .config('spark.driver.memory','32g')\
         .getOrCreate()
 
@@ -29,7 +30,7 @@ def sc_path(pathtype,path):
         Path = "file://"+path
 
     else:
-        Path = "hdfs://192.168.99.74:9000/root/hadoop/input/data/"
+        Path = "hdfs://hadoop2:9000/root/hadoop/input/data/"
     print("the path is :{}".format(Path))
     return Path
 
@@ -43,13 +44,23 @@ def read_file_to_RDD(sc, path,pathtype="local"):
     """
     return sc.textFile(sc_path(pathtype,path))
 
-def handle_data(raw_RDD,sep="|"):
+def transform_rdd_to_DF(rdd, columns_list):
+    """
+    将RDD类型转换为DataFrame类型
+    :param rdd:
+    :param columns_list:
+    :return:
+    """
+    df = rdd.toDF(columns_list)
+    return df
+
+def handle_data(raw_RDD,num_list,sep="|"):
     """
 
     :param raw_RDD: RDD类型
     :return:  只获取前三行数据，也就是用户，产品，评分
     """
-    return raw_RDD.map(lambda line: line.split(sep)[0:3])
+    return raw_RDD.map(lambda line: line.split(sep)[0:num_list])
 
 def split_train_test_data(raw_RDD,rates=[0.8,0.2]):
     """
@@ -159,7 +170,7 @@ def Recommend(ALS_model, type_for='U', k=1):
 
 def hadle_result(line):
     """
-    :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating=8.297368554401814),))
+    :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating8=.297368554401814),))
     :return:
     """
     """#如果用户与产品之间的关系是一对多的话就需要涉及到
@@ -198,7 +209,7 @@ def save_DF(df, path, sep="|",pathtype="local"):
 if __name__ == "__main__":
     sc = CreateSparkContext()
     raw_ratings_rdd =read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
-    ratings_rdd = handle_data(raw_ratings_rdd)
+    ratings_rdd = handle_data(raw_ratings_rdd,3)
     try:
         ratings_datas = create_als_data(ratings_rdd)
         training_ratings, testing_ratings = split_train_test_data(ratings_datas)
@@ -209,8 +220,10 @@ if __name__ == "__main__":
                 print("start recommned result")
                 recommend = Recommend(ALS_model=model)
                 recommendation_all = recommend.map(hadle_result).toDF()
-                category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt", sep=",")
-                result = handle_DataFrame(recommendation_all, category)
+                category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
+                catrgory_rdd = handle_data(category, 3)
+                category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
+                result = handle_DataFrame(recommendation_all, category_df,'products')
                 save_DF(result, "/data/lin/predict_data/recommend_movie_result/test")
             except Exception as e:
                 print(str(e))
