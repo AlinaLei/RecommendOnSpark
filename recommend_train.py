@@ -221,7 +221,7 @@ if __name__ == "__main__":
                 recommend = Recommend(ALS_model=model)
                 recommendation_all = recommend.map(hadle_result).toDF()
                 category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
-                catrgory_rdd = handle_data(category, 3)
+                catrgory_rdd = handle_data(category, 3,sep =',')
                 category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
                 result = handle_DataFrame(recommendation_all, category_df,'products')
                 save_DF(result, "/data/lin/predict_data/recommend_movie_result/test")
