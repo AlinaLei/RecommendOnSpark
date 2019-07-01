@@ -253,20 +253,17 @@ if __name__ == "__main__":
         training_ratings, testing_ratings = split_train_test_data(ratings_datas)
         model, rmse_value, rank, iterations, lambda_=train_model_evaluate(training_ratings, testing_ratings, 10, 4, 0.0001)
         try:
-            save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
-            try:
-                print("start recommned result")
-                recommend = Recommend(ALS_model=model)
-                recommendation_all = recommend.map(hadle_result).toDF()
+            #save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
 
-                category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
-                catrgory_rdd = handle_data(category, 3,sep =',')
-                category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
-                result = handle_DataFrame(recommendation_all, category_df,'products')
-                save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
-            except Exception as e:
-                print(str(e))
-                print("recommend failed")
+            print("start recommned result")
+            recommend = Recommend(ALS_model=model)
+            recommendation_all = recommend.map(hadle_result).toDF()
+            category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
+            catrgory_rdd = handle_data(category, 3,sep =',')
+            category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
+            result = handle_DataFrame(recommendation_all, category_df,'products')
+            save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
+
         except Exception as e:
             print(str(e))
             print("save model failed")
