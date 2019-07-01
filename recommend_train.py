@@ -233,7 +233,7 @@ def result_to_hive(hive_context):
 
 
 if __name__ == "__main__":
-
+    """
     #训练模型
     sc = CreateSparkContext()
     raw_ratings_rdd =read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
@@ -267,6 +267,7 @@ if __name__ == "__main__":
     try:
         recommend =LoadModel(sc, "file:///data/lin/savemodel/als_model_test")
         recommendation_all = recommend.map(hadle_result).toDF()
+        print("the recommendation is :{}".format(recommendation_all.head(3)))
         category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
         catrgory_rdd = handle_data(category, 3, sep=',')
         category_df = transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
@@ -276,7 +277,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(str(e))
         print("recommend failed")
-    """
+
 
 
 
