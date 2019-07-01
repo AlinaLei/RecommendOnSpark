@@ -23,7 +23,7 @@ hive_context = HiveContext(sc)
 category= sc.textFile('/data/lin/train_data/user_data/category.txt').map(lambda line: line.split(",")[0:3]).toDF(['products','category','channel']).registerTempTable("result_tmp")
 hive_context.sql("use sparktest")
 hive_context.sql("drop table if EXISTS  category_type  ")
-hive_context.sql("create table if not exists category_type(select * from result_tmp)")
+hive_context.sql("create table if not exists category_type as select * from result_tmp")
 #hive_context.sql("load data '/data/lin/train_data/user_data/category.txt' overwrite into table products_user ")
 """
 hive_context.sql("drop table if EXISTS  products_user  ")
