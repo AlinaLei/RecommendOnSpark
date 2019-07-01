@@ -265,13 +265,13 @@ if __name__ == "__main__":
     #加载模型
     sc = CreateSparkContext()
     try:
-        recommend =LoadModel(sc, "/data/lin/savemodel/als_model_test")
+        recommend =LoadModel(sc, "file:///data/lin/savemodel/als_model_test")
         recommendation_all = recommend.map(hadle_result).toDF()
         category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
         catrgory_rdd = handle_data(category, 3, sep=',')
         category_df = transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
         result = handle_DataFrame(recommendation_all, category_df, 'products')
-        save_DF(result, "/data/lin/predict_data/recommend_movie_result/test")
+        save_DF(result, "file:///data/lin/predict_data/recommend_movie_result/test")
 
     except Exception as e:
         print(str(e))
