@@ -9,7 +9,7 @@ from pyspark.mllib.evaluation import RegressionMetrics
 from pyspark.mllib.linalg import DenseVector
 import os
 #os.environ["PYSPARK_PYTHON"]="/usr/local/python3"  # set python version
-def CreateSparkContext():
+def CreateSparkContext_tmp():
     # 构建SparkSession实例对象
     spark = SparkSession.builder \
         .appName("TestSparkSession") \
@@ -20,6 +20,16 @@ def CreateSparkContext():
         .config("spark.executor.cores",'4')\
         .config('spark.cores.max','8')\
         .config('spark.driver.memory','32g')\
+        .getOrCreate()
+
+    # 获取SparkContext实例对象
+    sc = spark.sparkContext
+    return sc
+
+def CreateSparkContext():
+    spark = SparkSession.builder \
+        .appName("SparkSessionExample") \
+        .master("local") \
         .getOrCreate()
 
     # 获取SparkContext实例对象
