@@ -157,7 +157,7 @@ def save_model(sc,model,path):
 
 def LoadModel(sc, path):
     try:
-        model  = MatrixFactorizationModel.load(sc, path)
+        model = MatrixFactorizationModel.load(sc, path)
         print("载入模型成功")
         return model
     except Exception:
@@ -233,7 +233,7 @@ def result_to_hive(hive_context):
 
 
 if __name__ == "__main__":
-    """
+
     #训练模型
     sc = CreateSparkContext()
     raw_ratings_rdd =read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
@@ -243,7 +243,7 @@ if __name__ == "__main__":
         training_ratings, testing_ratings = split_train_test_data(ratings_datas)
         model, rmse_value, rank, iterations, lambda_=train_model_evaluate(training_ratings, testing_ratings, 10, 4, 0.0001)
         try:
-            save_model(sc, model, "/data/lin/savemodel/als_model_test")
+            save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
             try:
                 print("start recommned result")
                 recommend = Recommend(ALS_model=model)
@@ -276,7 +276,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(str(e))
         print("recommend failed")
-
+    """
 
 
 
