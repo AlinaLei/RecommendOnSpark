@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1874f253-d734-46a3-9f88-5d3ad53ee57a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recommend_train.py" afterPath="$PROJECT_DIR$/recommend_train.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_hive.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recommend_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2160">
-              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+            <state relative-caret-position="489">
+              <caret line="260" column="88" lean-forward="true" selection-start-line="260" selection-start-column="45" selection-end-line="260" selection-end-column="88" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
               </folding>
@@ -42,6 +43,24 @@
               <caret line="138" column="137" lean-forward="true" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="137" />
               <folding>
                 <element signature="e#46#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_hive.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_hive.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1561972904556" expanded="true" signature="753:788" ph="drop table i... " />
+                <marker date="1561972904556" expanded="true" signature="811:900" ph="create table... if" />
+                <marker date="1561972904556" expanded="true" signature="1037:1048" ph="drop table u... " />
+                <marker date="1561972904556" expanded="true" signature="1037:1072" ph="drop table i... " />
+                <marker date="1561972904556" expanded="true" signature="1095:1213" ph="create table... if" />
+                <marker date="1561972904556" expanded="true" signature="1365:1401" ph="select * fro... products_user" />
               </folding>
             </state>
           </provider>
@@ -65,6 +84,7 @@
         <option value="$PROJECT_DIR$/TensorflowOonspark.py" />
         <option value="F:/kaggle/losepredict/recommend_result.py" />
         <option value="$PROJECT_DIR$/recommend_train.py" />
+        <option value="$PROJECT_DIR$/test_hive.py" />
       </list>
     </option>
   </component>
@@ -211,10 +231,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recommend_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2160">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        <state relative-caret-position="489">
+          <caret line="260" column="88" lean-forward="true" selection-start-line="260" selection-start-column="45" selection-end-line="260" selection-end-column="88" />
           <folding>
             <element signature="e#45#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_hive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1561972904556" expanded="true" signature="753:788" ph="drop table i... " />
+            <marker date="1561972904556" expanded="true" signature="811:900" ph="create table... if" />
+            <marker date="1561972904556" expanded="true" signature="1037:1048" ph="drop table u... " />
+            <marker date="1561972904556" expanded="true" signature="1037:1072" ph="drop table i... " />
+            <marker date="1561972904556" expanded="true" signature="1095:1213" ph="create table... if" />
+            <marker date="1561972904556" expanded="true" signature="1365:1401" ph="select * fro... products_user" />
           </folding>
         </state>
       </provider>
