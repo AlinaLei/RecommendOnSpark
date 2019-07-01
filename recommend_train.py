@@ -2,6 +2,7 @@
 # -*-coding:utf:8 -*-
 
 from pyspark.sql import SparkSession,Row
+from pyspark.sql import HiveContext
 from pyspark.mllib.recommendation import ALS, Rating, MatrixFactorizationModel
 from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD
 from pyspark.mllib.evaluation import RegressionMetrics
@@ -13,6 +14,7 @@ def CreateSparkContext():
     spark = SparkSession.builder \
         .appName("TestSparkSession") \
         .master("spark://hadoop2:7077") \
+        .config("hive.metastore.uris", "thrift://hadoop1:9083") \
         .config('spark.executor.num','4')\
         .config('spark.executor.memory','32g')\
         .config("spark.executor.cores",'4')\
@@ -91,7 +93,7 @@ def alsModelEvaluate(model, testing_rdd):
     predict_rdd = model.predictAll(testing_rdd.map(lambda r: (r[0], r[1])))
     print(predict_rdd.take(5))
     predict_actual_rdd = predict_rdd.map(lambda r: ((r[0], r[1]), r[2])) \
-        .join(testing_ratings.map(lambda r: ((r[0], r[1]), r[2])))
+        .join(testing_rdd.map(lambda r: ((r[0], r[1]), r[2])))
 
     print(predict_actual_rdd.take(5))
     # 创建评估指标实例对象
@@ -123,7 +125,7 @@ def train_model_evaluate(training_rdd, testing_rdd, rank, iterations, lambda_):
     # 返回多元组
     return (model, rmse_value, rank, iterations, lambda_)
 
-def find_best_model(rank_list=[10, 20],iterations_list=[10, 20],lambda_list=[0.001, 0.01]):
+def find_best_model(training_ratings, testing_ratings,rank_list=[10, 20],iterations_list=[10, 20],lambda_list=[0.001, 0.01]):
     """
     通过迭代的方式来找到较好的模型参数
     :param rank_list: 隐藏因子的个数的列表
@@ -152,6 +154,15 @@ def save_model(sc,model,path):
     """
     model.save(sc, path)
     print("model has been saved")
+
+def LoadModel(sc, path):
+    try:
+        model  = MatrixFactorizationModel.load(sc, path)
+        print("载入模型成功")
+        return model
+    except Exception:
+        print("模型不存在，请先训练模型")
+        return None
 
 def Recommend(ALS_model, type_for='U', k=1):
     """
@@ -204,9 +215,26 @@ def save_DF(df, path, sep="|",pathtype="local"):
     :return:
     """
     # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
-    df.coalesce(1).write.csv(path=sc_path(sc,pathtype,path), header=False, sep=sep, mode='overwrite')
+    df.coalesce(1).write.csv(path=sc_path(pathtype,path), header=False, sep=sep, mode='overwrite')
+
+def hive_context(sc):
+    """
+    创建HIVE连接对象
+    :param sc:
+    :return:
+    """
+    hive_context = HiveContext(sc)
+    return hive_context
+
+def result_to_hive(hive_context):
+    sql_list = "create table "
+    hive_context.spl(sql_list)
+
+
 
 if __name__ == "__main__":
+    """
+    #训练模型
     sc = CreateSparkContext()
     raw_ratings_rdd =read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
     ratings_rdd = handle_data(raw_ratings_rdd,3)
@@ -233,7 +261,21 @@ if __name__ == "__main__":
             print("save model failed")
     except Exception as e:
         print(str(e))
+    """
+    #加载模型
+    sc = CreateSparkContext()
+    try:
+        recommend =LoadModel(sc, "/data/lin/savemodel/als_model_test")
+        recommendation_all = recommend.map(hadle_result).toDF()
+        category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
+        catrgory_rdd = handle_data(category, 3, sep=',')
+        category_df = transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
+        result = handle_DataFrame(recommendation_all, category_df, 'products')
+        save_DF(result, "/data/lin/predict_data/recommend_movie_result/test")
 
+    except Exception as e:
+        print(str(e))
+        print("recommend failed")
 
 
 
