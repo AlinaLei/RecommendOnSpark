@@ -18,9 +18,6 @@ def CreateSparkContext():
     sc = spark.sparkContext
     return sc
 
-def read_file_to_rdd(sc,path):
-
-
 sc =CreateSparkContext()
 
 hive_context = HiveContext(sc)
