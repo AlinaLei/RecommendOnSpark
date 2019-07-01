@@ -263,7 +263,9 @@ if __name__ == "__main__":
             category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
             result = handle_DataFrame(recommendation_all, category_df,'products')
             save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
-
+            result.rdd.map(lambda l: Row(str(l.user) + "|" + str(l.products) + "|" + str(l.rating) + "|" + str(l.category) + "|" + str(l.channel))).toDF().registerTempTable("result_tmp")
+            hive_context = HiveContext(sc)
+            hive_context.sql("create user_result as select * from result_tmp")
         except Exception as e:
             print(str(e))
             print("save model failed")

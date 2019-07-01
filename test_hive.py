@@ -19,13 +19,12 @@ def CreateSparkContext():
     return sc
 
 sc =CreateSparkContext()
-
 hive_context = HiveContext(sc)
-
+category= sc.textFile('/data/lin/train_data/user_data/category.txt').toDF(['products','category','channel']).registerTempTable("result_tmp")
 hive_context.sql("use sparktest")
 hive_context.sql("drop table if EXISTS  category_type  ")
-hive_context.sql("create table if not exists category_type(products string ,category string,channel string)")
-hive_context.sql("load data '/data/lin/train_data/user_data/category.txt' overwrite into table products_user ")
+hive_context.sql("create table if not exists category_type(select * from result_tmp)")
+#hive_context.sql("load data '/data/lin/train_data/user_data/category.txt' overwrite into table products_user ")
 """
 hive_context.sql("drop table if EXISTS  products_user  ")
 hive_context.sql("create table if not exists products_user(user_id:string ,products:string,rating:string,category:string,channel:string)")
