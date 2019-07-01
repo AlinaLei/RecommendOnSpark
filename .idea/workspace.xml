@@ -26,8 +26,8 @@
       <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recommend_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="267" column="25" lean-forward="true" selection-start-line="267" selection-start-column="25" selection-end-line="267" selection-end-column="25" />
+            <state relative-caret-position="-2160">
+              <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
               </folding>
@@ -38,7 +38,7 @@
       <file leaf-file-name="recommend_result.py" pinned="false" current-in-tab="false">
         <entry file="file://F:/kaggle/losepredict/recommend_result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
+            <state relative-caret-position="1893">
               <caret line="138" column="137" lean-forward="true" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="137" />
               <folding>
                 <element signature="e#46#86#0" expanded="true" />
@@ -201,7 +201,7 @@
     </entry>
     <entry file="file://F:/kaggle/losepredict/recommend_result.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
+        <state relative-caret-position="1893">
           <caret line="138" column="137" lean-forward="true" selection-start-line="138" selection-start-column="12" selection-end-line="138" selection-end-column="137" />
           <folding>
             <element signature="e#46#86#0" expanded="true" />
@@ -211,8 +211,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recommend_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="267" column="25" lean-forward="true" selection-start-line="267" selection-start-column="25" selection-end-line="267" selection-end-column="25" />
+        <state relative-caret-position="-2160">
+          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
           <folding>
             <element signature="e#45#85#0" expanded="true" />
           </folding>

@@ -9,11 +9,11 @@ from pyspark.mllib.evaluation import RegressionMetrics
 from pyspark.mllib.linalg import DenseVector
 import os
 #os.environ["PYSPARK_PYTHON"]="/usr/local/python3"  # set python version
-def CreateSparkContext_tmp():
+def CreateSparkContext():
     # 构建SparkSession实例对象
     spark = SparkSession.builder \
         .appName("TestSparkSession") \
-        .master("local") \
+        .master("spark://hadoop2:7077") \
         .config("hive.metastore.uris", "thrift://hadoop1:9083") \
         .config('spark.executor.num','4')\
         .config('spark.executor.memory','32g')\
@@ -26,7 +26,7 @@ def CreateSparkContext_tmp():
     sc = spark.sparkContext
     return sc
 
-def CreateSparkContext():
+def CreateSparkContext_tmp():
     spark = SparkSession.builder \
         .appName("SparkSessionExample") \
         .master("local") \
