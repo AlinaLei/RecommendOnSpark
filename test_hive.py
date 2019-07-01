@@ -24,7 +24,7 @@ hive_context = HiveContext(sc)
 
 hive_context.sql("use sparktest")
 hive_context.sql("drop table if EXISTS  category_type  ")
-hive_context.sql("create table if not exists category_type(products:string ,category:string,channel:string)")
+hive_context.sql("create table if not exists category_type(products string ,category string,channel string)")
 hive_context.sql("load data '/data/lin/train_data/user_data/category.txt' overwrite into table products_user ")
 """
 hive_context.sql("drop table if EXISTS  products_user  ")
