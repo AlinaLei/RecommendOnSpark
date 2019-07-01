@@ -167,9 +167,9 @@ def save_model(sc,model,path):
 
 def LoadModel(sc, path):
     try:
-        model = MatrixFactorizationModel.load(sc, path)
+        ALS_model = MatrixFactorizationModel.load(sc, path)
         print("载入模型成功")
-        return model
+        return ALS_model
     except Exception:
         print("模型不存在，请先训练模型")
         return None
