@@ -26,13 +26,13 @@
       <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recommend_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="273" column="0" lean-forward="true" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+            <state relative-caret-position="-1368">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
-                <marker date="1562047162992" expanded="true" signature="8227:8260" ph="select * fro... result_tmp" />
-                <marker date="1562047162992" expanded="true" signature="8390:8428" ph="drop table i... " />
-                <marker date="1562047162992" expanded="true" signature="8739:8762" ph="insert into hive... " />
+                <marker date="1562055340043" expanded="true" signature="8396:8429" ph="select * fro... result_tmp" />
+                <marker date="1562055340043" expanded="true" signature="8559:8597" ph="drop table i... " />
+                <marker date="1562055340043" expanded="true" signature="8908:8931" ph="insert into hive... " />
               </folding>
             </state>
           </provider>
@@ -42,7 +42,7 @@
         <entry file="file://F:/kaggle/losepredict/recommend_result.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="507">
-              <caret line="91" column="14" lean-forward="true" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
+              <caret line="91" column="14" lean-forward="false" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
               <folding>
                 <element signature="e#46#86#0" expanded="true" />
               </folding>
@@ -54,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/test_hive.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+              <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <marker date="1562038303040" expanded="true" signature="935:968" ph="select * fro... result_tmp" />
@@ -228,7 +228,7 @@
     <entry file="file://F:/kaggle/losepredict/recommend_result.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
-          <caret line="91" column="14" lean-forward="true" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
+          <caret line="91" column="14" lean-forward="false" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
           <folding>
             <element signature="e#46#86#0" expanded="true" />
           </folding>
@@ -238,7 +238,7 @@
     <entry file="file://$PROJECT_DIR$/test_hive.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <marker date="1562038303040" expanded="true" signature="935:968" ph="select * fro... result_tmp" />
@@ -257,13 +257,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recommend_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="273" column="0" lean-forward="true" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
+        <state relative-caret-position="-1368">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding>
             <element signature="e#45#85#0" expanded="true" />
-            <marker date="1562047162992" expanded="true" signature="8227:8260" ph="select * fro... result_tmp" />
-            <marker date="1562047162992" expanded="true" signature="8390:8428" ph="drop table i... " />
-            <marker date="1562047162992" expanded="true" signature="8739:8762" ph="insert into hive... " />
+            <marker date="1562055340043" expanded="true" signature="8396:8429" ph="select * fro... result_tmp" />
+            <marker date="1562055340043" expanded="true" signature="8559:8597" ph="drop table i... " />
+            <marker date="1562055340043" expanded="true" signature="8908:8931" ph="insert into hive... " />
           </folding>
         </state>
       </provider>

@@ -16,9 +16,9 @@ def CreateSparkContext():
         .master("spark://hadoop2:7077") \
         .config("hive.metastore.uris", "thrift://hadoop1:9083") \
         .config('spark.executor.num','4')\
-        .config('spark.executor.memory','32g')\
+        .config('spark.executor.memory','64g')\
         .config("spark.executor.cores",'4')\
-        .config('spark.cores.max','8')\
+        .config('spark.cores.max','16')\
         .config('spark.driver.memory','32g') \
         .config("spark.sql.catalogImplementation", "hive") \
         .getOrCreate()
@@ -263,7 +263,7 @@ if __name__ == "__main__":
 
             try:
                 #Hive相关操作
-                result.registerTempTable("result_tmp")
+                result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(["user","products","rating","category","channel"]).registerTempTable("result_tmp")
                 hive_context = HiveContext(sc)
                 hive_result = hive_context.sql( """select * from result_tmp limit 10""")
                 hive_result.show()
