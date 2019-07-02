@@ -11,7 +11,8 @@ def CreateSparkContext():
         .config('spark.executor.memory','32g')\
         .config("spark.executor.cores",'4')\
         .config('spark.cores.max','8')\
-        .config('spark.driver.memory','32g')\
+        .config('spark.driver.memory','32g') \
+        .config("spark.sql.catalogImplementation", "hive")\
         .getOrCreate()
 
     # 获取SparkContext实例对象
