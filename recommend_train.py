@@ -231,6 +231,7 @@ def save_DF(df, path, sep="|",pathtype="local"):
 class HiveOperator():
     def __init__(self, sc):
         self.sc = sc
+        return HiveContext(self.sc)
 
     def result_to_hive(self,sql_list):
         hive_context = HiveContext(self.sc)
@@ -263,18 +264,13 @@ if __name__ == "__main__":
             try:
                 #Hive相关操作
                 result.registerTempTable("result_tmp")
-                hive_class = HiveOperator(sc)
-                query_sql = """select * from result_tmp limit 10"""
-                hive_result = hive_class.result_to_hive(query_sql)
+                hive_context = HiveContext(sc)
+                hive_result = hive_context.sql( """select * from result_tmp limit 10""")
                 hive_result.show()
-                sql = """use sparktest"""
-                hive_class.result_to_hive(sql)
-                sql1 = """drop table if EXISTS  recommend_result """
-                hive_class.result_to_hive(sql1)
-                sql2 = """create table recommend_result as select * from result_tmp where 1=2 """
-                hive_class.result_to_hive(sql2)
-                sql3 = """insert overwrite  table recommend_result  select * from result_tmp"""
-                hive_class.result_to_hive(sql3)
+                hive_context.sql("""use sparktest""")
+                hive_context.sql("""drop table if EXISTS  recommend_result """)
+                hive_context.sql("""create table recommend_result as select * from result_tmp where 1=2 """)
+                hive_context.sql("""insert overwrite  table recommend_result  select * from result_tmp""")
 
             except Exception as e:
                 print(str(e))
