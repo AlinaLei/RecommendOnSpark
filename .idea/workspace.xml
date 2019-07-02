@@ -51,15 +51,17 @@
         <entry file="file://$PROJECT_DIR$/test_hive.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="25" column="81" lean-forward="false" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+              <caret line="25" column="96" lean-forward="true" selection-start-line="25" selection-start-column="96" selection-end-line="25" selection-end-column="96" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1562033802630" expanded="true" signature="898:933" ph="drop table i... " />
-                <marker date="1562033802630" expanded="true" signature="955:1034" ph="create table... if" />
-                <marker date="1562033802630" expanded="true" signature="1172:1183" ph="drop table u... " />
-                <marker date="1562033802630" expanded="true" signature="1172:1207" ph="drop table i... " />
-                <marker date="1562033802630" expanded="true" signature="1230:1348" ph="create table... if" />
-                <marker date="1562033802630" expanded="true" signature="1500:1536" ph="select * fro... products_user" />
+                <marker date="1562034484134" expanded="true" signature="898:933" ph="drop table i... " />
+                <marker date="1562034484134" expanded="true" signature="955:1030" ph="create table... category_type" />
+                <marker date="1562034484134" expanded="true" signature="1052:1136" ph="insert into table... " />
+                <marker date="1562034484134" expanded="true" signature="1063:1136" ph="create table... if" />
+                <marker date="1562034484134" expanded="true" signature="1274:1285" ph="drop table u... " />
+                <marker date="1562034484134" expanded="true" signature="1274:1309" ph="drop table i... " />
+                <marker date="1562034484134" expanded="true" signature="1332:1450" ph="create table... if" />
+                <marker date="1562034484134" expanded="true" signature="1602:1638" ph="select * fro... products_user" />
               </folding>
             </state>
           </provider>
@@ -241,15 +243,17 @@
     <entry file="file://$PROJECT_DIR$/test_hive.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="25" column="81" lean-forward="false" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+          <caret line="25" column="96" lean-forward="true" selection-start-line="25" selection-start-column="96" selection-end-line="25" selection-end-column="96" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1562033802630" expanded="true" signature="898:933" ph="drop table i... " />
-            <marker date="1562033802630" expanded="true" signature="955:1034" ph="create table... if" />
-            <marker date="1562033802630" expanded="true" signature="1172:1183" ph="drop table u... " />
-            <marker date="1562033802630" expanded="true" signature="1172:1207" ph="drop table i... " />
-            <marker date="1562033802630" expanded="true" signature="1230:1348" ph="create table... if" />
-            <marker date="1562033802630" expanded="true" signature="1500:1536" ph="select * fro... products_user" />
+            <marker date="1562034484134" expanded="true" signature="898:933" ph="drop table i... " />
+            <marker date="1562034484134" expanded="true" signature="955:1030" ph="create table... category_type" />
+            <marker date="1562034484134" expanded="true" signature="1052:1136" ph="insert into table... " />
+            <marker date="1562034484134" expanded="true" signature="1063:1136" ph="create table... if" />
+            <marker date="1562034484134" expanded="true" signature="1274:1285" ph="drop table u... " />
+            <marker date="1562034484134" expanded="true" signature="1274:1309" ph="drop table i... " />
+            <marker date="1562034484134" expanded="true" signature="1332:1450" ph="create table... if" />
+            <marker date="1562034484134" expanded="true" signature="1602:1638" ph="select * fro... products_user" />
           </folding>
         </state>
       </provider>
