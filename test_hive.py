@@ -35,5 +35,4 @@ hive_context.sql("create table if not exists products_user(user_id:string ,produ
 hive_context.sql("load data '/data/lin/predict_data/recommend_movie_result/test' overwrite into table products_user")
 """
 result = hive_context.sql("select * from category_type limit 10")
-print("the result is :{}".format(result))
-print("the type is :{}".format(type(result)))
+result.show()

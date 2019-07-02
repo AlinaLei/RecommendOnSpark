@@ -19,7 +19,8 @@ def CreateSparkContext():
         .config('spark.executor.memory','32g')\
         .config("spark.executor.cores",'4')\
         .config('spark.cores.max','8')\
-        .config('spark.driver.memory','32g')\
+        .config('spark.driver.memory','32g') \
+        .config("spark.sql.catalogImplementation", "hive") \
         .getOrCreate()
 
     # 获取SparkContext实例对象
@@ -227,20 +228,14 @@ def save_DF(df, path, sep="|",pathtype="local"):
     # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
     df.coalesce(1).write.csv(path=sc_path(pathtype,path), header=False, sep=sep, mode='overwrite')
 
-def hive_context(sc):
-    """
-    创建HIVE连接对象
-    :param sc:
-    :return:
-    """
-    hive_context = HiveContext(sc)
-    return hive_context
+class HiveOperator():
+    def __init__(self, sc):
+        self.sc = sc
 
-def result_to_hive(hive_context):
-    sql_list = "create table "
-    hive_context.spl(sql_list)
-
-
+    def result_to_hive(self,sql_list):
+        hive_context = HiveContext(self.sc)
+        hive_context = hive_context(sc)
+        return hive_context.spl(sql_list)
 
 if __name__ == "__main__":
 
@@ -263,9 +258,27 @@ if __name__ == "__main__":
             category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
             result = handle_DataFrame(recommendation_all, category_df,'products')
             save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
-            result.rdd.map(lambda l: Row(str(l.user) + "|" + str(l.products) + "|" + str(l.rating) + "|" + str(l.category) + "|" + str(l.channel))).toDF().registerTempTable("result_tmp")
-            hive_context = HiveContext(sc)
-            hive_context.sql("create user_result as select * from result_tmp")
+            #result.toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
+
+            try:
+                #Hive相关操作
+                result.registerTempTable("result_tmp")
+                hive_class = HiveOperator(sc)
+                query_sql = """select * from result_tmp limit 10"""
+                hive_result = hive_class.result_to_hive(query_sql)
+                hive_result.show()
+                sql = """use sparktest"""
+                hive_class.result_to_hive(sql)
+                sql1 = """drop table if EXISTS  recommend_result """
+                hive_class.result_to_hive(sql1)
+                sql2 = """create table recommend_result as select * from result_tmp where 1=2 """
+                hive_class.result_to_hive(sql2)
+                sql3 = """insert overwrite  table recommend_result  select * from result_tmp"""
+                hive_class.result_to_hive(sql3)
+
+            except Exception as e:
+                print(str(e))
+                print("insert into hive failed")
         except Exception as e:
             print(str(e))
             print("save model failed")
