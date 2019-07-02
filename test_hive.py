@@ -21,6 +21,8 @@ def CreateSparkContext():
 sc =CreateSparkContext()
 hive_context = HiveContext(sc)
 category= sc.textFile('/data/lin/train_data/user_data/category.txt').map(lambda line: line.split(",")[0:3]).toDF(['products','category','channel']).registerTempTable("result_tmp")
+result1 = hive_context.sql("select * from result_tmp limit 10")
+print("the result is :{}".format(result1))
 hive_context.sql("use sparktest")
 hive_context.sql("drop table if EXISTS  category_type ")
 hive_context.sql("create table category_type as select * from result_tmp where 1=2 ")

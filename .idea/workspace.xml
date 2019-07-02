@@ -50,18 +50,19 @@
       <file leaf-file-name="test_hive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_hive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+            <state relative-caret-position="324">
+              <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1562035485647" expanded="true" signature="898:933" ph="drop table i... " />
-                <marker date="1562035485647" expanded="true" signature="955:1009" ph="create table... category_type" />
-                <marker date="1562035485647" expanded="true" signature="1041:1129" ph="insert into table... " />
-                <marker date="1562035485647" expanded="true" signature="1058:1129" ph="create table... if" />
-                <marker date="1562035485647" expanded="true" signature="1267:1278" ph="drop table u... " />
-                <marker date="1562035485647" expanded="true" signature="1267:1302" ph="drop table i... " />
-                <marker date="1562035485647" expanded="true" signature="1325:1443" ph="create table... if" />
-                <marker date="1562035485647" expanded="true" signature="1595:1631" ph="select * fro... products_user" />
+                <marker date="1562035955730" expanded="true" signature="874:907" ph="select * fro... result_tmp" />
+                <marker date="1562035955730" expanded="true" signature="1005:1040" ph="drop table i... " />
+                <marker date="1562035955730" expanded="true" signature="1062:1116" ph="create table... category_type" />
+                <marker date="1562035955730" expanded="true" signature="1148:1236" ph="insert into table... " />
+                <marker date="1562035955730" expanded="true" signature="1165:1236" ph="create table... if" />
+                <marker date="1562035955730" expanded="true" signature="1374:1385" ph="drop table u... " />
+                <marker date="1562035955730" expanded="true" signature="1374:1409" ph="drop table i... " />
+                <marker date="1562035955730" expanded="true" signature="1432:1550" ph="create table... if" />
+                <marker date="1562035955730" expanded="true" signature="1702:1738" ph="select * fro... products_user" />
               </folding>
             </state>
           </provider>
@@ -178,6 +179,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08413205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -187,7 +189,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1626898" sideWeight="0.49574015" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.49574015" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.49574015" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -241,18 +243,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_hive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+        <state relative-caret-position="324">
+          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1562035485647" expanded="true" signature="898:933" ph="drop table i... " />
-            <marker date="1562035485647" expanded="true" signature="955:1009" ph="create table... category_type" />
-            <marker date="1562035485647" expanded="true" signature="1041:1129" ph="insert into table... " />
-            <marker date="1562035485647" expanded="true" signature="1058:1129" ph="create table... if" />
-            <marker date="1562035485647" expanded="true" signature="1267:1278" ph="drop table u... " />
-            <marker date="1562035485647" expanded="true" signature="1267:1302" ph="drop table i... " />
-            <marker date="1562035485647" expanded="true" signature="1325:1443" ph="create table... if" />
-            <marker date="1562035485647" expanded="true" signature="1595:1631" ph="select * fro... products_user" />
+            <marker date="1562035955730" expanded="true" signature="874:907" ph="select * fro... result_tmp" />
+            <marker date="1562035955730" expanded="true" signature="1005:1040" ph="drop table i... " />
+            <marker date="1562035955730" expanded="true" signature="1062:1116" ph="create table... category_type" />
+            <marker date="1562035955730" expanded="true" signature="1148:1236" ph="insert into table... " />
+            <marker date="1562035955730" expanded="true" signature="1165:1236" ph="create table... if" />
+            <marker date="1562035955730" expanded="true" signature="1374:1385" ph="drop table u... " />
+            <marker date="1562035955730" expanded="true" signature="1374:1409" ph="drop table i... " />
+            <marker date="1562035955730" expanded="true" signature="1432:1550" ph="create table... if" />
+            <marker date="1562035955730" expanded="true" signature="1702:1738" ph="select * fro... products_user" />
           </folding>
         </state>
       </provider>
