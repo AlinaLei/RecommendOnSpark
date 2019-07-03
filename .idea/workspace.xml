@@ -26,13 +26,13 @@
       <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recommend_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="265" column="140" lean-forward="false" selection-start-line="265" selection-start-column="140" selection-end-line="265" selection-end-column="140" />
+            <state relative-caret-position="609">
+              <caret line="266" column="140" lean-forward="false" selection-start-line="266" selection-start-column="140" selection-end-line="266" selection-end-column="140" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
-                <marker date="1562060392009" expanded="true" signature="8418:8451" ph="select * fro... result_tmp" />
-                <marker date="1562060392009" expanded="true" signature="8581:8619" ph="drop table i... " />
-                <marker date="1562060392009" expanded="true" signature="8930:8953" ph="insert into hive... " />
+                <marker date="1562121748940" expanded="true" signature="8436:8469" ph="select * fro... result_tmp" />
+                <marker date="1562121748940" expanded="true" signature="8599:8637" ph="drop table i... " />
+                <marker date="1562121748940" expanded="true" signature="8948:8971" ph="insert into hive... " />
               </folding>
             </state>
           </provider>
@@ -257,13 +257,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recommend_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="265" column="140" lean-forward="false" selection-start-line="265" selection-start-column="140" selection-end-line="265" selection-end-column="140" />
+        <state relative-caret-position="609">
+          <caret line="266" column="140" lean-forward="false" selection-start-line="266" selection-start-column="140" selection-end-line="266" selection-end-column="140" />
           <folding>
             <element signature="e#45#85#0" expanded="true" />
-            <marker date="1562060392009" expanded="true" signature="8418:8451" ph="select * fro... result_tmp" />
-            <marker date="1562060392009" expanded="true" signature="8581:8619" ph="drop table i... " />
-            <marker date="1562060392009" expanded="true" signature="8930:8953" ph="insert into hive... " />
+            <marker date="1562121748940" expanded="true" signature="8436:8469" ph="select * fro... result_tmp" />
+            <marker date="1562121748940" expanded="true" signature="8599:8637" ph="drop table i... " />
+            <marker date="1562121748940" expanded="true" signature="8948:8971" ph="insert into hive... " />
           </folding>
         </state>
       </provider>

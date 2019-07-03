@@ -258,12 +258,13 @@ if __name__ == "__main__":
             catrgory_rdd = handle_data(category, 3,sep =',')
             category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
             result = handle_DataFrame(recommendation_all, category_df,'products')
+            print("the result head is :{}".format(result.head(4)))
             save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
             #result.toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
 
             try:
                 #Hive相关操作
-                result.rdd.map(lambda l:Row(user=str(l.user),products=str(l.products),rating=str(l.rating),category=str(l.category),channel=str(l.channel))).toDF(["user","products","rating","category","channel"]).registerTempTable("result_tmp")
+                result.rdd.map(lambda l:Row(user=str(l.user),products=str(l.products),rating=str(l.rating),category=str(l.category),channel=str(l.channel))).toDF().registerTempTable("result_tmp")
                 hive_context = HiveContext(sc)
                 hive_result = hive_context.sql( """select * from result_tmp limit 10""")
                 hive_result.show()
