@@ -39,7 +39,7 @@ hive_context.sql("drop table if EXISTS  products_user  ")
 hive_context.sql("create table if not exists products_user(user_id:string ,products:string,rating:string,category:string,channel:string)")
 hive_context.sql("load data '/data/lin/predict_data/recommend_movie_result/test' overwrite into table products_user")
 """
-file_name = os.listdir("/data/lin/predict_data/recommend_movie_result/test/")
+file_name = os.listdir("/data/lin/predict_data/recommend_movie_result/test11/")
 for i in file_name:
     if os.path.splitext(i)[1]==".csv":
         names=i
