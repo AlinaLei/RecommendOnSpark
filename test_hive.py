@@ -39,8 +39,13 @@ hive_context.sql("drop table if EXISTS  products_user  ")
 hive_context.sql("create table if not exists products_user(user_id:string ,products:string,rating:string,category:string,channel:string)")
 hive_context.sql("load data '/data/lin/predict_data/recommend_movie_result/test' overwrite into table products_user")
 """
-
-result_tmp=sc.textFile("/data/lin/predict_data/recommend_movie_result/test/*.csv").map(lambda line: line.split("|")[0:5]).toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
+file_name = os.listdir("/data/lin/predict_data/recommend_movie_result/test/")
+for i in file_name:
+    if os.path.splitext(i)[1]==".csv":
+        names=i
+path = "/data/lin/predict_data/recommend_movie_result/test/"+names
+print("the path is :{}".format(path))
+result_tmp=sc.textFile(path).map(lambda line: line.split("|")[0:5]).toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
 hive_context = HiveContext(sc)
 hive_result = hive_context.sql( """select * from result_tmp limit 10""")
 hive_result.show()
