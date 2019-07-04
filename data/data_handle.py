@@ -59,3 +59,9 @@ def save_DF(df, path, sep="|",pathtype="local"):
     # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
     df.coalesce(1).write.csv(path=sc_path(pathtype,path), header=False, sep=sep, mode='overwrite')
 
+def split_data_by_category(df,col_name,path):
+    category_id =df.select('product').distinct().collect()
+    for i in category_id:
+        v=str(col_name+"="+i.category)
+        tmp= df.where(v)
+        tmp.write.format("csv").save(path)

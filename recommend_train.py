@@ -3,7 +3,7 @@
 
 from models.model_feature import *
 from config.config import *
-from handle_data.data_handle import *
+from data.data_handle import *
 
 ##TODO 拆分结果集
 ##TODO 将拆分结果保存到文件中
@@ -29,8 +29,11 @@ if __name__ == "__main__":
             catrgory_rdd = handle_read_data(category, 3,sep =',')
             category_df = transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
             result = handle_DataFrame(recommendation_all, category_df,'products')
-            print("the result head is :{}".format(result.head(4)))
-            save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
+            split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test",mode='overwrite')
+
+            print("the result head is :{}".format(result.show(4)))
+            result.write.format("csv").save("/data/lin/predict_data/recommend_movie_result/test/category_result",mode='overwrite')
+            #save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
             #result.toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
             """
             try:
@@ -60,7 +63,7 @@ if __name__ == "__main__":
         recommendation_all = recommend.map(hadle_result).toDF()
         print("the recommendation is :{}".format(recommendation_all.head(3)))
         category = read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
-        catrgory_rdd = handle_data(category, 3, sep=',')
+        catrgory_rdd = data(category, 3, sep=',')
         category_df = transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
         result = handle_DataFrame(recommendation_all, category_df, 'products')
         save_DF(result, "file:///data/lin/predict_data/recommend_movie_result/test")
