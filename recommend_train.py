@@ -1,9 +1,9 @@
 #/usr/bin/env python3
 # -*-coding:utf:8 -*-
 
-from models.model_feature import *
+from .models.model_feature import *
 from config.config import *
-from data.data_handle import *
+from .data.data_handle import *
 
 ##TODO 拆分结果集
 ##TODO 将拆分结果保存到文件中
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test",mode='overwrite')
 
             print("the result head is :{}".format(result.show(4)))
-            result.write.format("csv").save("/data/lin/predict_data/recommend_movie_result/test/category_result",mode='overwrite')
+            save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
             #save_DF(result.rdd.map(lambda l:Row(str(l.user)+"|"+str(l.products)+"|"+str(l.rating)+"|"+str(l.category)+"|"+str(l.channel))).toDF(), "/data/lin/predict_data/recommend_movie_result/test")
             #result.toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
             """

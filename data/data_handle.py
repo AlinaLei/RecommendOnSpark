@@ -19,8 +19,6 @@ def transform_rdd_to_DF(rdd, columns_list):
     df = rdd.toDF(columns_list)
     return df
 
-
-
 def hadle_result(line):
     """
     :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating8=.297368554401814),))
@@ -48,7 +46,7 @@ def handle_DataFrame(df1,df2,col_name):
     result_df = df1.join(df2,[col_name],"left")
     return result_df
 
-def save_DF(df, path, sep="|",pathtype="local"):
+def save_DF(df, path,pathtype="local"):
     """
     保存DataFrame类型的数据到文件
     :param df:
@@ -56,12 +54,25 @@ def save_DF(df, path, sep="|",pathtype="local"):
     :param sep:
     :return:
     """
+    if pathtype == "local":
+        Path = "file://"+path
+
+    else:
+        Path = "hdfs://hadoop2:9000/root/hadoop/input/data/"
     # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
-    df.coalesce(1).write.csv(path=sc_path(pathtype,path), header=False, sep=sep, mode='overwrite')
+    df.coalesce(1).write.format("csv").save(Path, mode='overwrite')
 
 def split_data_by_category(df,col_name,path):
+    """
+    按照产品类别ID进行结果拆分
+    :param df:
+    :param col_name:
+    :param path:
+    :return:
+    """
     category_id =df.select('product').distinct().collect()
     for i in category_id:
         v=str(col_name+"="+i.category)
         tmp= df.where(v)
-        tmp.write.format("csv").save(path)
+        save_DF(tmp,path)
+
