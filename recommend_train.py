@@ -264,7 +264,7 @@ if __name__ == "__main__":
 
             try:
                 #Hive相关操作
-                result_tmp=sc.textFile("/data/lin/predict_data/recommend_movie_result/test").map(lambda line: line.split("|")[0:5]).toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
+                result_tmp=sc.textFile("/data/lin/predict_data/recommend_movie_result/test/*").map(lambda line: line.split("|")[0:5]).toDF(['user','products','rating','category','channel']).registerTempTable("result_tmp")
                 hive_context = HiveContext(sc)
                 hive_result = hive_context.sql( """select * from result_tmp limit 10""")
                 hive_result.show()
