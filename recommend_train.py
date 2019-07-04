@@ -14,7 +14,7 @@ if __name__ == "__main__":
     #训练模型
     sc = CreateSparkContext()
     raw_ratings_rdd =data_handle.read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
-    ratings_rdd = data_handle.handle_read_data(raw_ratings_rdd,3)
+    ratings_rdd = model_feature.handle_read_data(raw_ratings_rdd,3)
     try:
         ratings_datas = model_feature.create_als_data(ratings_rdd)
         training_ratings, testing_ratings = model_feature.split_train_test_data(ratings_datas)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
             recommend = model_feature.Recommend(ALS_model=model)
             recommendation_all = recommend.map(data_handle.hadle_result).toDF()
             category = data_handle.read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
-            catrgory_rdd = data_handle.handle_read_data(category, 3,sep =',')
+            catrgory_rdd = model_feature.handle_read_data(category, 3,sep =',')
             category_df = data_handle.transform_rdd_to_DF(catrgory_rdd, ['products','category','channel'])
             result = data_handle.handle_DataFrame(recommendation_all, category_df,'products')
             data_handle.split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test",mode='overwrite')
