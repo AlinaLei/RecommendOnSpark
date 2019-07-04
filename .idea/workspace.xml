@@ -21,11 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recommend_train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recommend_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+            <state relative-caret-position="368">
+              <caret line="273" column="106" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="273" selection-end-column="106" />
               <folding>
                 <element signature="e#45#85#0" expanded="true" />
                 <marker date="1562208222136" expanded="true" signature="8462:8495" ph="select * fro... result_tmp" />
@@ -36,23 +36,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_hive.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_hive.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_hive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="179" lean-forward="true" selection-start-line="23" selection-start-column="147" selection-end-line="23" selection-end-column="179" />
+            <state relative-caret-position="361">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1562038303040" expanded="true" signature="935:968" ph="select * fro... result_tmp" />
-                <marker date="1562038303040" expanded="true" signature="1038:1073" ph="drop table i... " />
-                <marker date="1562038303040" expanded="true" signature="1097:1151" ph="create table... category_type" />
-                <marker date="1562038303040" expanded="true" signature="1097:1392" ph="create table... category_type" />
-                <marker date="1562038303040" expanded="true" signature="1187:1275" ph="insert into table... " />
-                <marker date="1562038303040" expanded="true" signature="1204:1275" ph="create table... if" />
-                <marker date="1562038303040" expanded="true" signature="1415:1426" ph="drop table u... " />
-                <marker date="1562038303040" expanded="true" signature="1415:1450" ph="drop table i... " />
-                <marker date="1562038303040" expanded="true" signature="1473:1591" ph="create table... if" />
-                <marker date="1562038303040" expanded="true" signature="1743:1779" ph="select * fro... products_user" />
+                <marker date="1562210352343" expanded="true" signature="939:972" ph="select * fro... result_tmp" />
+                <marker date="1562210352343" expanded="true" signature="1042:1077" ph="drop table i... " />
+                <marker date="1562210352343" expanded="true" signature="1100:1154" ph="create table... category_type" />
+                <marker date="1562210352343" expanded="true" signature="1100:1392" ph="create table... category_type" />
+                <marker date="1562210352343" expanded="true" signature="1188:1276" ph="insert into table... " />
+                <marker date="1562210352343" expanded="true" signature="1205:1276" ph="create table... if" />
+                <marker date="1562210352343" expanded="true" signature="1420:1456" ph="select * fro... category_type" />
+                <marker date="1562210352343" expanded="true" signature="1493:1504" ph="drop table u... " />
+                <marker date="1562210352343" expanded="true" signature="1493:1528" ph="drop table i... " />
+                <marker date="1562210352343" expanded="true" signature="1551:1669" ph="create table... if" />
+                <marker date="1562210352343" expanded="true" signature="2066:2099" ph="select * fro... result_tmp" />
+                <marker date="1562210352343" expanded="true" signature="2181:2219" ph="drop table i... " />
               </folding>
             </state>
           </provider>
@@ -75,8 +77,8 @@
       <list>
         <option value="$PROJECT_DIR$/TensorflowOonspark.py" />
         <option value="F:/kaggle/losepredict/recommend_result.py" />
-        <option value="$PROJECT_DIR$/test_hive.py" />
         <option value="$PROJECT_DIR$/recommend_train.py" />
+        <option value="$PROJECT_DIR$/test_hive.py" />
       </list>
     </option>
   </component>
@@ -218,16 +220,18 @@
           <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1562038303040" expanded="true" signature="935:968" ph="select * fro... result_tmp" />
-            <marker date="1562038303040" expanded="true" signature="1038:1073" ph="drop table i... " />
-            <marker date="1562038303040" expanded="true" signature="1097:1151" ph="create table... category_type" />
-            <marker date="1562038303040" expanded="true" signature="1097:1392" ph="create table... category_type" />
-            <marker date="1562038303040" expanded="true" signature="1187:1275" ph="insert into table... " />
-            <marker date="1562038303040" expanded="true" signature="1204:1275" ph="create table... if" />
-            <marker date="1562038303040" expanded="true" signature="1415:1426" ph="drop table u... " />
-            <marker date="1562038303040" expanded="true" signature="1415:1450" ph="drop table i... " />
-            <marker date="1562038303040" expanded="true" signature="1473:1591" ph="create table... if" />
-            <marker date="1562038303040" expanded="true" signature="1743:1779" ph="select * fro... products_user" />
+            <marker date="1562210352343" expanded="true" signature="939:972" ph="select * fro... result_tmp" />
+            <marker date="1562210352343" expanded="true" signature="1042:1077" ph="drop table i... " />
+            <marker date="1562210352343" expanded="true" signature="1100:1154" ph="create table... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1100:1392" ph="create table... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1188:1276" ph="insert into table... " />
+            <marker date="1562210352343" expanded="true" signature="1205:1276" ph="create table... if" />
+            <marker date="1562210352343" expanded="true" signature="1420:1456" ph="select * fro... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1493:1504" ph="drop table u... " />
+            <marker date="1562210352343" expanded="true" signature="1493:1528" ph="drop table i... " />
+            <marker date="1562210352343" expanded="true" signature="1551:1669" ph="create table... if" />
+            <marker date="1562210352343" expanded="true" signature="2066:2099" ph="select * fro... result_tmp" />
+            <marker date="1562210352343" expanded="true" signature="2181:2219" ph="drop table i... " />
           </folding>
         </state>
       </provider>
@@ -254,35 +258,37 @@
       </provider>
     </entry>
     <entry file="file://F:/kaggle/losepredict/recommend_result.py" />
-    <entry file="file://$PROJECT_DIR$/test_hive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="179" lean-forward="true" selection-start-line="23" selection-start-column="147" selection-end-line="23" selection-end-column="179" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1562038303040" expanded="true" signature="935:968" ph="select * fro... result_tmp" />
-            <marker date="1562038303040" expanded="true" signature="1038:1073" ph="drop table i... " />
-            <marker date="1562038303040" expanded="true" signature="1097:1151" ph="create table... category_type" />
-            <marker date="1562038303040" expanded="true" signature="1097:1392" ph="create table... category_type" />
-            <marker date="1562038303040" expanded="true" signature="1187:1275" ph="insert into table... " />
-            <marker date="1562038303040" expanded="true" signature="1204:1275" ph="create table... if" />
-            <marker date="1562038303040" expanded="true" signature="1415:1426" ph="drop table u... " />
-            <marker date="1562038303040" expanded="true" signature="1415:1450" ph="drop table i... " />
-            <marker date="1562038303040" expanded="true" signature="1473:1591" ph="create table... if" />
-            <marker date="1562038303040" expanded="true" signature="1743:1779" ph="select * fro... products_user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/recommend_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+        <state relative-caret-position="368">
+          <caret line="273" column="106" lean-forward="true" selection-start-line="266" selection-start-column="16" selection-end-line="273" selection-end-column="106" />
           <folding>
             <element signature="e#45#85#0" expanded="true" />
             <marker date="1562208222136" expanded="true" signature="8462:8495" ph="select * fro... result_tmp" />
             <marker date="1562208222136" expanded="true" signature="8625:8663" ph="drop table i... " />
             <marker date="1562208222136" expanded="true" signature="8974:8997" ph="insert into hive... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_hive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1562210352343" expanded="true" signature="939:972" ph="select * fro... result_tmp" />
+            <marker date="1562210352343" expanded="true" signature="1042:1077" ph="drop table i... " />
+            <marker date="1562210352343" expanded="true" signature="1100:1154" ph="create table... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1100:1392" ph="create table... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1188:1276" ph="insert into table... " />
+            <marker date="1562210352343" expanded="true" signature="1205:1276" ph="create table... if" />
+            <marker date="1562210352343" expanded="true" signature="1420:1456" ph="select * fro... category_type" />
+            <marker date="1562210352343" expanded="true" signature="1493:1504" ph="drop table u... " />
+            <marker date="1562210352343" expanded="true" signature="1493:1528" ph="drop table i... " />
+            <marker date="1562210352343" expanded="true" signature="1551:1669" ph="create table... if" />
+            <marker date="1562210352343" expanded="true" signature="2066:2099" ph="select * fro... result_tmp" />
+            <marker date="1562210352343" expanded="true" signature="2181:2219" ph="drop table i... " />
           </folding>
         </state>
       </provider>
