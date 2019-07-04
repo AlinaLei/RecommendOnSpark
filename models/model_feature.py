@@ -9,7 +9,7 @@ from pyspark.mllib.evaluation import RegressionMetrics
 from pyspark.mllib.linalg import DenseVector
 import os
 
-def handle_data(raw_RDD,num_list,sep="|"):
+def handle_read_data(raw_RDD,num_list,sep="|"):
     """
 
     :param raw_RDD: RDD类型
