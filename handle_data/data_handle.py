@@ -1,0 +1,61 @@
+from config.config import *
+def read_file_to_RDD(sc, path,pathtype="local"):
+    """
+    读取文件到RDD
+    :param sc:
+    :param path:
+    :param pathtype:
+    :return:
+    """
+    return sc.textFile(sc_path(pathtype,path))
+
+def transform_rdd_to_DF(rdd, columns_list):
+    """
+    将RDD类型转换为DataFrame类型
+    :param rdd:
+    :param columns_list:
+    :return:
+    """
+    df = rdd.toDF(columns_list)
+    return df
+
+
+
+def hadle_result(line):
+    """
+    :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating8=.297368554401814),))
+    :return:
+    """
+    """#如果用户与产品之间的关系是一对多的话就需要涉及到
+    product = []
+    rating = []
+    for item in line[1]:
+        product.append(item[1])
+        rating.append(item[2]) """
+    for item in line[1]:
+        product= item[1]
+        rating = item[2]
+    return Row (user=line[0],products =product ,rating =rating)
+
+def handle_DataFrame(df1,df2,col_name):
+    """
+    拼接两个DataFrame
+    :param df1:
+    :param df2:
+    :param col_name: 拼接的Key
+    :return:
+    """
+    result_df = df1.join(df2,[col_name],"left")
+    return result_df
+
+def save_DF(df, path, sep="|",pathtype="local"):
+    """
+    保存DataFrame类型的数据到文件
+    :param df:
+    :param path:
+    :param sep:
+    :return:
+    """
+    # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
+    df.coalesce(1).write.csv(path=sc_path(pathtype,path), header=False, sep=sep, mode='overwrite')
+
