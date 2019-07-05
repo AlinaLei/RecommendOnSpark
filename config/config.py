@@ -20,9 +20,10 @@ def CreateSparkContext():
         .config('spark.cores.max','16')\
         .config('spark.driver.memory','32g') \
         .config("spark.sql.catalogImplementation", "hive") \
-        .config("spark.yarn.appMasterEnv.PYSPARK_PYTHON","/usr/local/lib/python3.6/site-packages")\
-        .config("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON","/usr/local/lib/python3.6")\
         .getOrCreate()
+        #.config("spark.yarn.appMasterEnv.PYSPARK_PYTHON","/usr/local/lib/python3.6/site-packages")\
+        #.config("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON","/usr/local/lib/python3.6")\
+
 
     # 获取SparkContext实例对象
     sc = spark.sparkContext
