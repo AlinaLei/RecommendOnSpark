@@ -1,11 +1,11 @@
 
 
 def train_model_feature(train_data_path, category_path):
-    from config.config import *
+    from config import config
     from data_feature import data_handle
     from models import model_feature
 
-    sc = CreateSparkContext()
+    sc = config.CreateSparkContext()
     print("start test1")
     raw_ratings_rdd = data_handle.read_file_to_RDD(sc,train_data_path)
     print("start read data test 2")
@@ -43,11 +43,11 @@ def train_model_feature(train_data_path, category_path):
         print(str(e))
 
 def load_model_feature():
-    from config.config import *
+    from config import config
     from data_feature import data_handle
     from models import model_feature
     # 加载模型
-    sc = CreateSparkContext()
+    sc = config.CreateSparkContext()
     try:
         recommend = model_feature.LoadModel(sc, "file:///data/lin/savemodel/als_model_test")
         recommendation_all = recommend.map(data_handle.hadle_result).toDF()
@@ -62,5 +62,3 @@ def load_model_feature():
         print("recommend failed")
 
 
-def test_test():
-    data_handle.test()
