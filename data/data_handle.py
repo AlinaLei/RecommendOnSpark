@@ -76,3 +76,5 @@ def split_data_by_category(df,col_name,path):
         tmp= df.where(v)
         save_DF(tmp,path)
 
+def test():
+    print("the test is ok!")
