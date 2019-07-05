@@ -2,10 +2,6 @@
 # -*-coding:utf:8 -*-
 
 from models import train_model
-
-
-
-
 ##TODO 拆分结果集
 ##TODO 将拆分结果保存到文件中
 ##TODO 重命名文件名
@@ -27,7 +23,7 @@ from models import train_model
 
 if __name__ == "__main__":
     #训练模型
-    train_model.train_model_feature("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv","/data/lin/train_data/user_data/category.txt")
+    train_model.train_model_feature("/data/input/u.csv","/data/input/category_test.csv")
 
 
 

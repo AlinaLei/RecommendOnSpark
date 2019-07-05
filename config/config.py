@@ -1,7 +1,11 @@
 from pyspark.sql import SparkSession,Row
 from pyspark.sql import HiveContext
 import os
-#os.environ["PYSPARK_PYTHON"]="/usr/local/python3"  # set python version
+
+os.environ['SPARK_HOME']="/opt/spark"
+os.environ["PYSPARK_PYTHON"]="/usr/local/python3"  # set python version
+
+
 def CreateSparkContext():
     # 构建SparkSession实例对象
     spark = SparkSession.builder \
