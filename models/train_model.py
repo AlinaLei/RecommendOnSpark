@@ -1,9 +1,9 @@
-from config.config import *
-from data_feature import data_handle
-from models import model_feature
 
 
 def train_model_feature(train_data_path, category_path):
+    from config.config import *
+    from data_feature import data_handle
+    from models import model_feature
 
     sc = CreateSparkContext()
     print("start test1")
@@ -43,6 +43,9 @@ def train_model_feature(train_data_path, category_path):
         print(str(e))
 
 def load_model_feature():
+    from config.config import *
+    from data_feature import data_handle
+    from models import model_feature
     # 加载模型
     sc = CreateSparkContext()
     try:
