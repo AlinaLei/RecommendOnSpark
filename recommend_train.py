@@ -5,6 +5,8 @@ from models import model_feature
 from config.config import *
 from data import data_handle
 
+
+
 ##TODO 拆分结果集
 ##TODO 将拆分结果保存到文件中
 ##TODO 重命名文件名
@@ -26,9 +28,10 @@ from data import data_handle
 
 if __name__ == "__main__":
     data_handle.test()
-    """
+
     #训练模型
     sc = CreateSparkContext()
+    """
     raw_ratings_rdd =data_handle.read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
     ratings_rdd = model_feature.handle_read_data(raw_ratings_rdd,3)
     try:
