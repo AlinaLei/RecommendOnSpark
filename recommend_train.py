@@ -27,22 +27,25 @@ from data import data_handle
                 print("insert into hive failed") """
 
 if __name__ == "__main__":
-    data_handle.test()
-
     #训练模型
     sc = CreateSparkContext()
-    """
-    raw_ratings_rdd =data_handle.read_file_to_RDD(sc,"/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
+    print("start test1")
+    raw_ratings_rdd = data_handle.read_file_to_RDD(sc, "/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
+    print("start read data test 2")
     ratings_rdd = model_feature.handle_read_data(raw_ratings_rdd,3)
     try:
+        print("start handle data test 3")
         ratings_datas = model_feature.create_als_data(ratings_rdd)
+        print("start split data test 4")
         training_ratings, testing_ratings = model_feature.split_train_test_data(ratings_datas)
+        print("start train model test 5")
         model, rmse_value, rank, iterations, lambda_=model_feature.train_model_evaluate(training_ratings, testing_ratings, 10, 4, 0.0001)
         try:
             #save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
 
             print("start recommned result")
             recommend = model_feature.Recommend(ALS_model=model)
+
             recommendation_all = recommend.map(data_handle.hadle_result).toDF()
             category = data_handle.read_file_to_RDD(sc, "/data/lin/train_data/user_data/category.txt")
             catrgory_rdd = model_feature.handle_read_data(category, 3,sep =',')
@@ -64,7 +67,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(str(e))
         
-    """
+
     """
     #加载模型
     sc = CreateSparkContext()

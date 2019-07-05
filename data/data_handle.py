@@ -1,4 +1,6 @@
-from config.config import *
+from config import config
+from pyspark.sql import Row
+
 def read_file_to_RDD(sc, path,pathtype="local"):
     """
     读取文件到RDD
@@ -7,7 +9,7 @@ def read_file_to_RDD(sc, path,pathtype="local"):
     :param pathtype:
     :return:
     """
-    return sc.textFile(sc_path(pathtype,path))
+    return sc.textFile(config.sc_path(pathtype,path))
 
 def transform_rdd_to_DF(rdd, columns_list):
     """
