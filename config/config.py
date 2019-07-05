@@ -3,8 +3,9 @@ from pyspark.sql import HiveContext
 import os
 
 os.environ['SPARK_HOME']="/opt/spark"
-os.environ["PYSPARK_PYTHON"]="/usr/local/python3"  # set python version
-
+os.environ["PYSPARK_PYTHON"]="/usr/bin/python"  # set python version
+os.environ['JAVA_HOME']='/opt/jdk1.8.0_141'
+os.environ['PYSPARK_DRIVEN_PYTHON']="/usr/bin/python"
 
 def CreateSparkContext():
     # 构建SparkSession实例对象
@@ -18,6 +19,8 @@ def CreateSparkContext():
         .config('spark.cores.max','16')\
         .config('spark.driver.memory','32g') \
         .config("spark.sql.catalogImplementation", "hive") \
+        .config("spark.yarn.appMasterEnv.PYSPARK_PYTHON","/usr/bin/python")\
+        .config("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON","/usr/bin/python")\
         .getOrCreate()
 
     # 获取SparkContext实例对象
