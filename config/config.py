@@ -3,6 +3,7 @@ from pyspark.sql import HiveContext
 import os
 
 os.environ['PYTHON_HOME']="/opt/Python-3.6.5"
+os.environ['PYSPARK_PYTHON']="/opt/Python-3.6.5"
 
 def CreateSparkContext():
     # 构建SparkSession实例对象
