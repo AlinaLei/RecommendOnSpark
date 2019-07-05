@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession,Row
 from pyspark.sql import HiveContext
 import os
 
-os.environ['PYTHON_HOME']="/usr/local/lib/python3.6"
+os.environ['PYTHON_HOME']="/opt/Python-3.6.5"
 
 def CreateSparkContext():
     # 构建SparkSession实例对象
