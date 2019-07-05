@@ -1,5 +1,5 @@
 from config.config import *
-from data import data_handle
+from data_feature import data_handle
 from models import model_feature
 
 
@@ -57,3 +57,7 @@ def load_model_feature():
     except Exception as e:
         print(str(e))
         print("recommend failed")
+
+
+def test_test():
+    data_handle.test()
