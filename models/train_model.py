@@ -7,7 +7,7 @@ def train_model_feature(train_data_path, category_path):
 
     sc = config.CreateSparkContext()
     print("start test1")
-    raw_ratings_rdd = data_handle.read_file_to_RDD(sc,train_data_path,pathtype='hdfs')
+    raw_ratings_rdd = data_handle.read_file_to_RDD(sc,train_data_path,pathtype='local')
     print("start read data test 2")
     ratings_rdd = model_feature.handle_read_data(raw_ratings_rdd, 3)
     try:
@@ -24,7 +24,7 @@ def train_model_feature(train_data_path, category_path):
             print("start train model test 6")
             recommendation_all = recommend.map(data_handle.hadle_result).toDF()
             print("start train model test 7")
-            category = data_handle.read_file_to_RDD(sc, category_path,pathtype='hdfs')
+            category = data_handle.read_file_to_RDD(sc, category_path,pathtype='local')
             print("start train model test 8")
             catrgory_rdd = model_feature.handle_read_data(category, 3, sep=',')
             print("start train model test 9")
