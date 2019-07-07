@@ -24,10 +24,11 @@ def CreateSparkContext():
         #.config("spark.yarn.appMasterEnv.PYSPARK_PYTHON","/usr/local/lib/python3.6/site-packages")\
         #.config("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON","/usr/local/lib/python3.6")\
 
-
     # 获取SparkContext实例对象
     sc = spark.sparkContext
-    sc.pyFiles="file:///data/lin/code/code_git/RecommendOnSpark"
+    sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/models.zip")
+    sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/config.zip")
+    sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/data_feature.zip")
     return sc
 
 def CreateSparkContext_tmp():
