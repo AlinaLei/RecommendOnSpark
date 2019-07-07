@@ -20,14 +20,14 @@ def CreateSparkContext():
         .config('spark.cores.max','16')\
         .config('spark.driver.memory','32g') \
         .config("spark.sql.catalogImplementation", "hive") \
-        .addPyFile("file:///data/lin/code/code_git/RecommendOnSpark")\
         .getOrCreate()
         #.config("spark.yarn.appMasterEnv.PYSPARK_PYTHON","/usr/local/lib/python3.6/site-packages")\
         #.config("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON","/usr/local/lib/python3.6")\
 
 
     # 获取SparkContext实例对象
-    sc = spark.sparkContext
+    sc = spark.sparkContext()
+    sc.pyFiles="file:///data/lin/code/code_git/RecommendOnSpark"
     return sc
 
 def CreateSparkContext_tmp():
