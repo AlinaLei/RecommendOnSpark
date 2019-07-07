@@ -21,6 +21,9 @@ from models import train_model
                 print(str(e))
                 print("insert into hive failed") """
 
+
+
+
 if __name__ == "__main__":
     #训练模型
     train_model.train_model_feature("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv","/data/lin/train_data/user_data/category.txt")
