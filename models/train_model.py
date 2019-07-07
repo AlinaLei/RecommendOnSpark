@@ -1,4 +1,19 @@
-
+from pyspark.sql import Row
+def hadle_result(line):
+    """
+    :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating8=.297368554401814),))
+    :return:
+    """
+    """#如果用户与产品之间的关系是一对多的话就需要涉及到
+    product = []
+    rating = []
+    for item in line[1]:
+        product.append(item[1])
+        rating.append(item[2]) """
+    for item in line[1]:
+        product= item[1]
+        rating = item[2]
+    return Row (user=line[0],products =product ,rating =rating)
 
 def train_model_feature(train_data_path, category_path):
     from config import config
@@ -21,10 +36,11 @@ def train_model_feature(train_data_path, category_path):
             # save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
             print("start recommned result")
             recommend = model_feature.Recommend(ALS_model=model)
-            print("start train model test 7")
+            print("start load category data test 7")
             category = data_handle.read_file_to_RDD(sc, category_path, pathtype='local')
             print("start train model test 6")
-            recommendation_all = recommend.map(data_handle.hadle_result).toDF()
+
+            recommendation_all = recommend.map(hadle_result).toDF()
 
             print("start train model test 8")
             catrgory_rdd = model_feature.handle_read_data(category, 3, sep=',')
