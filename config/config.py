@@ -9,7 +9,7 @@ def CreateSparkContext():
     # 构建SparkSession实例对象
     spark = SparkSession.builder \
         .appName("TestSparkSession") \
-        .master("spark://hadoop2:7077") \
+        .master("spark://hadoop2:9000") \
         .config("hive.metastore.uris", "thrift://hadoop1:9083") \
         .config('spark.executor.num','4')\
         .config('spark.executor.memory','64g')\
