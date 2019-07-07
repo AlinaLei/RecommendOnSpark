@@ -4,7 +4,7 @@ import os
 
 os.environ['JAVA_HOME']='/opt/jdk1.8.0_141'
 os.environ['PYTHON_HOME']="/opt/Python-3.6.5"
-os.environ['PYSPARK_PYTHON']="/opt/spark/bin"
+os.environ['PYSPARK_PYTHON']="/usr/bin/python3"
 os.environ['SPARK_HOME']='/opt/spark'
 os.environ['SPARK_CLASSPATH']='/opt/spark/jars/mysql-connector-java-8.0.13.jar'
 os.environ['SPARK_MASTER_IP']='hadoop2'
