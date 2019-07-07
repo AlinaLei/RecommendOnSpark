@@ -26,7 +26,7 @@ def CreateSparkContext():
 
 
     # 获取SparkContext实例对象
-    sc = spark.sparkContext()
+    sc = spark.sparkContext
     sc.pyFiles="file:///data/lin/code/code_git/RecommendOnSpark"
     return sc
 
