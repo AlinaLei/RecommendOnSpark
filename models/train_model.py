@@ -21,10 +21,11 @@ def train_model_feature(train_data_path, category_path):
             # save_model(sc, model, "file:///data/lin/savemodel/als_model_test")
             print("start recommned result")
             recommend = model_feature.Recommend(ALS_model=model)
+            print("start train model test 7")
+            category = data_handle.read_file_to_RDD(sc, category_path, pathtype='local')
             print("start train model test 6")
             recommendation_all = recommend.map(data_handle.hadle_result).toDF()
-            print("start train model test 7")
-            category = data_handle.read_file_to_RDD(sc, category_path,pathtype='local')
+
             print("start train model test 8")
             catrgory_rdd = model_feature.handle_read_data(category, 3, sep=',')
             print("start train model test 9")
