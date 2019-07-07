@@ -1,6 +1,6 @@
 from config import config
 from pyspark.sql import Row
-
+import pyspark.sql.types as typ
 def read_file_to_RDD(sc, path,pathtype="local"):
     """
     读取文件到RDD
@@ -47,6 +47,24 @@ def handle_DataFrame(df1,df2,col_name):
     """
     result_df = df1.join(df2,[col_name],"left")
     return result_df
+
+def read_csv_to_df(sc,path,header=False):
+    """
+    直接读取csv文件到DataFrame
+    :param sc:
+    :param path:
+    :param header:
+    :return:
+    """
+    labels = [('user_id',typ.IntegerType()),
+              ('product_id',typ.IntegerType()),
+              ('rating',typ.FloatType())
+              ]
+    schema = typ.StructType([
+        typ.StructField(e[0],e[1],False) for e in labels
+    ])
+    user_data =sc.read.csv(path,header=header,schema=schema)
+    return user_data
 
 def save_DF(df, path,pathtype="local"):
     """
