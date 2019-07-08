@@ -49,8 +49,8 @@ def train_model_feature(train_data_path, category_path):
             print("start train model test 10")
             result = data_handle.handle_DataFrame(recommendation_all, category_df, 'products')
             print("start train model test 11")
-            data_handle.split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test",
-                                               mode='overwrite')
+            data_handle.split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test"
+                                               )
             print("the result head is :{}".format(result.show(4)))
             data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
         except Exception as e:

@@ -94,7 +94,7 @@ def split_data_by_category(df,col_name,path):
     for i in category_id:
         v=str(col_name+"="+i.category)
         tmp= df.where(v)
-        save_DF(tmp,path)
+        save_DF(tmp,path,mode='overwrite')
 
 def test():
     print("the test is ok!")
