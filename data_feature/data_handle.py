@@ -91,10 +91,11 @@ def split_data_by_category(df,col_name,path):
     :return:
     """
     category_id =df.select('product').distinct().collect()
+
     for i in category_id:
         v=str(col_name+"="+i.category)
         tmp= df.where(v)
-        save_DF(tmp,path,mode='overwrite')
+        save_DF(tmp,path+"/"+str(i),mode='overwrite')
 
 def test():
     print("the test is ok!")
