@@ -50,9 +50,18 @@ def train_model_feature(train_data_path, category_path):
             result = data_handle.handle_DataFrame(recommendation_all, category_df, 'products')
             print("the result head is :{}".format(result.show(4)))
             print("start train model test 11")
-            data_handle.split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test")
+            try:
+                data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
+            except Exception as e:
+                print(str(e))
+                print("save result failed")
+            print("start split data test13")
+            try:
+                data_handle.split_data_by_category(result, 'category', "/data/lin/predict_data/recommend_movie_result/test")
+            except Exception as e:
+                print(str(e))
+                print("split data failed")
 
-            data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
         except Exception as e:
             print(str(e))
             print("save model failed")

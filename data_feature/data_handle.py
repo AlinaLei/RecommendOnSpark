@@ -90,8 +90,8 @@ def split_data_by_category(df,col_name,path):
     :param path:
     :return:
     """
-    category_id =df.select('products').distinct().collect()
-
+    category_id =df.select(col_name).distinct().collect()
+    print(category_id)
     for i in category_id:
         v=str(col_name+"="+i.category)
         print("the sql is :".format(v))
