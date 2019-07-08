@@ -94,8 +94,11 @@ def split_data_by_category(df,col_name,path):
 
     for i in category_id:
         v=str(col_name+"="+i.category)
+        print("the sql is :".format(v))
         tmp= df.where(v)
-        save_DF(tmp,path+"/"+str(i),mode='overwrite')
+        tmp.show(5)
+        path_tmp=path+"/"+str(i)
+        save_DF(tmp,path_tmp,mode='overwrite')
 
 def test():
     print("the test is ok!")
