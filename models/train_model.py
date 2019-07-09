@@ -46,6 +46,7 @@ def train_model_feature(train_data_path, category_path):
             catrgory_rdd = model_feature.handle_read_data(category, 3, sep=',')
             print("start train model test 9")
             category_df = data_handle.transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
+            print(category_df.show(5))
             print("start train model test 10")
             result = data_handle.handle_DataFrame(recommendation_all, category_df, 'products')
             print("the result head is :{}".format(result.show(4)))
