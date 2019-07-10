@@ -53,6 +53,7 @@ def train_model_feature(train_data_path, category_path):
             result.show(4)
             print("start train model test 11")
             try:
+                print("start save result!")
                 data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
             except Exception as e:
                 print(str(e))
