@@ -95,12 +95,13 @@ def split_data_by_category(df,col_name,path):
     print("the split data is:")
     df.show(5)
     for i in category_id:
-        v=str(col_name+"="+i.category)
-        print("the sql is :".format(v))
-        tmp= df.where(v)
-        tmp.show(5)
-        path_tmp=path+"/"+str(i)
-        save_DF(tmp,path_tmp)
+        if i.category!=None:
+            v=str(col_name+"="+i.category)
+            print("the sql is :".format(v))
+            tmp= df.where(v)
+            tmp.show(5)
+            path_tmp=path+"/"+str(i)
+            save_DF(tmp,path_tmp)
 
 def test():
     print("the test is ok!")

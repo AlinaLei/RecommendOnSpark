@@ -41,20 +41,22 @@ def train_model_feature(train_data_path, category_path):
             print("start train model test 6")
 
             recommendation_all = recommend.map(hadle_result).toDF()
-
+            print("recommendation data is :")
+            recommendation_all.show(4)
             print("start train model test 8")
             catrgory_rdd = model_feature.handle_read_data(category, 3, sep=',')
             print("start train model test 9")
             category_df = data_handle.transform_rdd_to_DF(catrgory_rdd, ['products', 'category', 'channel'])
             print(category_df.show(5))
             print("start train model test 10")
-            result = data_handle.handle_DataFrame(recommendation_all, category_df, 'products')
+            #result = data_handle.handle_DataFrame(recommendation_all, category_df, 'products')
+            result= recommendation_all.join(category_df,['products'],"left")
             print("the result type is :{}".format(type(result)))
             result.show(4)
             print("start train model test 11")
             try:
                 print("start save result!")
-                data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result")
+                data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result1")
             except Exception as e:
                 print(str(e))
                 print("save result failed")
