@@ -35,13 +35,15 @@ def handle_data(train_data_path):
     y_test = Y[end_size:]
     return x_train,x_test,y_train,y_test
 
-if __name__=='__main__':
-    x_train, x_test, y_train, y_test =handle_data("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
+def tf_workflow(train_path):
+    x_train, x_test, y_train, y_test = handle_data(
+        "/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
     model = train_dnn()
-    model.compile(loss = 'binary_crossentropy', optimizer='adam',metrics = ['accuracy'])
-    model.fit(x_train,y_train,batch_size = batch_size ,epochs=nb_epoch )
-    loss_and_metrics = model.evaluate(x_test,y_test,batch_size=batch_size)
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    model.fit(x_train, y_train, batch_size=batch_size, epochs=nb_epoch)
+    loss_and_metrics = model.evaluate(x_test, y_test, batch_size=batch_size)
     print("the loss is :{}".format(loss_and_metrics))
+
 
 
 
