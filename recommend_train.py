@@ -1,6 +1,6 @@
 #/usr/bin/env python3
 # -*-coding:utf:8 -*-
-
+import os
 from models import train_model
 ##TODO 拆分结果集
 ##TODO 将拆分结果保存到文件中
@@ -26,6 +26,12 @@ from models import train_model
 
 if __name__ == "__main__":
     #训练模型
+    os.system("rm -rf data_feature.zip")
+    os.system("rm -rf models.zip")
+    os.system("rm -rf config.zip")
+    os.system("zip -r -0 models.zip models/")
+    os.system("zip -r -0 config.zip config/")
+    os.system("zip -r -0 data_feature.zip data_feature/")
     train_model.train_model_feature("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv","/data/lin/train_data/user_data/category.txt")
 
 
