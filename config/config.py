@@ -47,7 +47,7 @@ def sc_path(pathtype,path):
         Path = "file://"+path
 
     else:
-        Path = "hdfs://hadoop2:9000/root/hadoop/input/data/"
+        Path = "hdfs:/root/hadoop/input/data/"+path
     print("the path is :{}".format(Path))
     return Path
 

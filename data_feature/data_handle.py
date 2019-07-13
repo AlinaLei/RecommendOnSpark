@@ -78,11 +78,11 @@ def save_DF(df, path,pathtype="local"):
         Path = "file://"+path
 
     else:
-        Path = "hdfs://hadoop2:9000/root/hadoop/input/data/"
+        Path = "hdfs://hadoop2:9000/root/hadoop/input/data/"+path
     # 将df保存输出的时候coalesce(1)的意思就是将输出到文件都放在一起而不进行拆分，如果不指定在大数据量的情况下文件输出会自动拆分
     df.coalesce(1).write.csv(Path, mode='overwrite')
 
-def split_data_by_category(df,col_name,path):
+def split_data_by_category(df,col_name,path,pathtype="local"):
     """
     按照产品类别ID进行结果拆分
     :param df:
@@ -102,7 +102,7 @@ def split_data_by_category(df,col_name,path):
             tmp.show(5)
             path_tmp=path+"/"+str(i.category)
             print("path is :{}".format(path_tmp))
-            save_DF(tmp,path_tmp)
+            save_DF(tmp,path_tmp,pathtype)
 
 def test():
     print("the test is ok!")
