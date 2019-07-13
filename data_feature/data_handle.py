@@ -100,7 +100,8 @@ def split_data_by_category(df,col_name,path):
             print("the sql is :".format(v))
             tmp= df.where(v)
             tmp.show(5)
-            path_tmp=path+"/"+str(i)
+            path_tmp=path+"/"+str(i.category)
+            print("path is :{}".format(path_tmp))
             save_DF(tmp,path_tmp)
 
 def test():
