@@ -30,10 +30,12 @@ if __name__ == "__main__":
     os.system("rm -rf data_feature.zip")
     os.system("rm -rf models.zip")
     os.system("rm -rf config.zip")
+    os.system("rm -rf hive.zip")
     os.system("zip -r -0 models.zip models/")
     os.system("zip -r -0 config.zip config/")
     os.system("zip -r -0 data_feature.zip data_feature/")
-    #train_model.train_model_feature("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv","/data/lin/train_data/user_data/category.txt")
-    tf_dnn.tf_workflow("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
+    os.system("zip -r -0 hive.zip hive/")
+    train_model.train_model_feature("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv","/data/lin/train_data/user_data/category.txt")
+    #tf_dnn.tf_workflow("/data/lin/train_data/user_data/part-00000-fa8d558c-15be-4399-a575-f0a5391c46f9-c000.csv")
 
 

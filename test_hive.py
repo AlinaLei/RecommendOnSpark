@@ -21,7 +21,12 @@ def CreateSparkContext():
     return sc
 
 sc =CreateSparkContext()
+
 hive_context = HiveContext(sc)
+hive_context.sql("use sparktest")
+#hive_context.sql("select * from category_type limit 50").coalesce(1).write.csv("hdfs://172.16.3.200:8020/user/root/hivetest", mode='overwrite')
+hive_context.sql("select * from category_type limit 50").createOrReplaceTempView("test_hive")
+hive_context.sql("")
 """
 category= sc.textFile('/data/lin/train_data/user_data/category.txt').map(lambda line: line.split(",")[0:3]).toDF(['products','category','channel']).registerTempTable("result_tmp")
 result1 = hive_context.sql("select * from result_tmp limit 10")
@@ -34,10 +39,6 @@ hive_context.sql(""insert overwrite  table category_type  select products ,categ
 result = hive_context.sql("select * from category_type limit 10")
 result.show()
 
-
-hive_context.sql("drop table if EXISTS  products_user  ")
-hive_context.sql("create table if not exists products_user(user_id:string ,products:string,rating:string,category:string,channel:string)")
-hive_context.sql("load data '/data/lin/predict_data/recommend_movie_result/test' overwrite into table products_user")
 """
 file_name = os.listdir("/data/lin/predict_data/recommend_movie_result/test11/")
 for i in file_name:

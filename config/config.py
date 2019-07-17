@@ -29,6 +29,7 @@ def CreateSparkContext():
     sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/models.zip")
     sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/config.zip")
     sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/data_feature.zip")
+    sc.addPyFile("file:///data/lin/code/code_git/RecommendOnSpark/hive.zip")
     return sc
 
 def CreateSparkContext_tmp():
@@ -59,3 +60,8 @@ class HiveOperator():
     def result_to_hive(self,sql_list):
         hive_context = HiveContext(self.sc)
         return hive_context.spl(sql_list)
+
+    def hive_query(self,sql_list):
+        hive_context = HiveContext(self.sc)
+
+

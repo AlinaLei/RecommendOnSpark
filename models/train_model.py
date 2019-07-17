@@ -1,4 +1,6 @@
 from pyspark.sql import Row
+from pyspark.sql import HiveContext
+from hive import use_hive
 def hadle_result(line):
     """
     :param RDD: 这里的RDD是一条数据，长这样 (451, (Rating(user=451, product=1426, rating8=.297368554401814),))
@@ -55,8 +57,11 @@ def train_model_feature(train_data_path, category_path):
             result.show(4)
             print("start train model test 11")
             try:
-                print("start save result!")
-                data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result1")
+                print("start save result to hive!")
+                #data_handle.save_DF(result, "/data/lin/predict_data/recommend_movie_result/test/category_result1")
+                hive_context = use_hive.HiveOperate(sc)
+                hive_context.df_insert_to_hive(result)
+
             except Exception as e:
                 print(str(e))
                 print("save result failed")

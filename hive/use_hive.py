@@ -5,16 +5,16 @@ import os
 from config import config
 
 class HiveOperate():
-    def __init__(self):
+    def __init__(self,sc):
         """
         创建Hive session
         :return:
         """
-        self.sc = config.CreateSparkContext()
-        self.hive_context = HiveContext(self.sc)
+        #self.sc = config.CreateSparkContext()
+        self.hive_context = HiveContext(sc)
         return self.hive_context
 
-    def df_insert_to_hive(self, df, table_name='category_type', database='sparktest'):
+    def df_insert_to_hive(self, df, table_name='channel_result', database='sparktest'):
         """
         将数据插入到hive中
         :param df:
